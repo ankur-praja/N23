@@ -40,6 +40,13 @@ app.patch("/notes/:index", (req, res) => {
     res.send("note updated successfully")
 })
 
+app.use("*name", (req, res) => {
+    res.status(404).json({
+        message: "route not found",
+        success: false
+    })
+})
+
 app.listen(3000, () => {
     console.log("server is running on port 3000");
 })
