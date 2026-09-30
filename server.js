@@ -9,6 +9,13 @@ app.use(morgan("dev"))
 
 const notes = []
 
+app.get("/",(req,res)=>{
+    res.status(200).json({
+        message:"server is running",
+        success:true
+    })
+})
+
 app.post("/notes", (req, res) => {
     notes.push(req.body)
     res.send("note added successfully")
